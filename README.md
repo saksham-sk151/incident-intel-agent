@@ -12,6 +12,31 @@ Intelligence for Zero-Harm Operations*) — specifically the retrieval-
 augmented, document-grounded angle of that brief, as distinct from a
 structured-data risk-scoring engine.
 
+## Screenshots
+
+Live run against the local dev servers (backend on `:8000`, frontend on
+`:5173`), with no LLM key set for this particular run — so these show the
+extractive fallback mode (`MODE: EXTRACTIVE`), the honest default anyone
+gets without configuring `GEMINI_API_KEY`. With a key set, the same views
+show `MODE: GENERATIVE (GEMINI)` and a generated (still cited) answer
+instead — see "What actually happens when generation is turned on" below.
+
+**Ask a question, get a cited answer, jump to the reports that grounded it**
+
+![Ask tab with a cited answer](docs/screenshots/ask-answer-light.png)
+
+![Deep-linked related incident reports](docs/screenshots/related-reports-light.png)
+
+**Browse and filter all 210 incident reports**
+
+![Incident report browser](docs/screenshots/incident-browser-light.png)
+
+**Dark theme**
+
+![Ask tab in dark theme](docs/screenshots/ask-answer-dark.png)
+
+![Incident browser in dark theme](docs/screenshots/incident-browser-dark.png)
+
 ## Why this exists
 
 This project was scoped deliberately to demonstrate four things end to end,
