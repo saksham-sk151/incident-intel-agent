@@ -11,8 +11,7 @@ venv/
 backend/app/data/incidents.json
 backend/app/data/regulations.json
 backend/app/data/eval_questions.json
-backend/*.db
-backend/app/*.db
+*.db
 backend/eval_report.json
 
 # Node

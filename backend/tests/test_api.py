@@ -110,7 +110,7 @@ def test_ask_returns_grounded_answer_with_citations(client):
     })
     assert resp.status_code == 200
     body = resp.json()
-    assert body["mode"] in ("extractive", "generative (openai)")
+    assert body["mode"] in ("extractive", "generative (openai)", "generative (gemini)")
     assert len(body["citations"]) == 3
     assert len(body["retrieved"]) == 3
     # The known-relevant regulation should be in the retrieved set for this query.
