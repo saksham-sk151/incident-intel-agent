@@ -43,7 +43,8 @@ This project was scoped deliberately to demonstrate four things end to end,
 each with a real, measured result rather than a claim: a full-stack
 application (FastAPI backend + React frontend), a working retrieval-
 augmented generation pipeline, a statistics layer with an honest scoring
-methodology, and a tested, containerized, CI-checked codebase.
+methodology, and a tested, CI-checked codebase (containerized too, in
+principle — the Docker setup just hasn't been run yet; see "Running it").
 
 ## Architecture
 
@@ -273,20 +274,26 @@ docker compose up --build
 ```
 Note: the Dockerfiles follow standard, well-tested patterns (slim Python
 base + pip install for the backend, a Node build stage feeding a small
-nginx image for the frontend) but the images were not build-tested in the
-sandbox this project was authored in, which had no Docker daemon
-available — build and verify with `docker compose up --build` in your own
-environment before relying on it for a demo, and fix forward from whatever
-comes up (there's a real chance of a small path or dependency issue on
-first run, as with any Dockerfile that hasn't been run yet).
+nginx image for the frontend), but as of this writing `docker compose up
+--build` has **not actually been run** — not in the sandbox this project
+was authored in (no Docker daemon available there), and not locally
+either. CI doesn't cover this either (see below) — it runs the backend
+and frontend directly, not through Docker. Build and verify it yourself
+before relying on it for a demo or citing it as working, and fix forward
+from whatever comes up (there's a real chance of a small path or
+dependency issue on first run, as with any Dockerfile that hasn't been
+run yet).
 
 **CI**: `.github/workflows/ci.yml` runs backend tests + the retrieval eval
 (uploading the report as a build artifact) and lints + builds the frontend
-on every push/PR to `main`. This hasn't been exercised on actual GitHub
-infrastructure yet — push to a repo and check the Actions tab before
-citing "CI-tested" as a resume claim; the workflow is straightforward but
-first-run CI configs often need one or two small fixes (path issues,
-caching keys) that only surface on GitHub's runners.
+on every push/PR to `main`. **Verified**: pushed to GitHub and confirmed
+green on real GitHub Actions infrastructure (not just written and assumed
+to work) — 4/4 runs passing as of the latest commit, covering the full
+22-test backend suite and the frontend lint+build. It does not build or
+run the Docker images, so a passing CI run says nothing about whether
+`docker compose up --build` actually works (see above) — those are two
+separate, independently-verified-or-not claims and shouldn't be
+conflated.
 
 ## Extending this project (natural next steps)
 
@@ -299,21 +306,26 @@ caching keys) that only surface on GitHub's runners.
    needs the fix, not just the answer layer.
 2. ~~Real generation~~ — done: `GEMINI_API_KEY` verified working end to
    end (see "What actually happens when generation is turned on" above).
+2b. ~~Real CI verification~~ — done: pushed to GitHub, Actions runs are
+   green (4/4), covering the backend test suite, retrieval eval, and
+   frontend lint+build for real, not just on paper.
 3. **Postgres**: point `DATABASE_URL` at a real Postgres instance to
    demonstrate the swap works with no code changes.
-4. **Real Docker/CI verification**: run `docker compose up --build`
-   locally and push to GitHub to see the Actions workflow actually run,
-   fixing whatever surfaces — then the "containerized, CI-tested" claim is
-   fully verified, not just plausible.
+4. **Real Docker verification**: run `docker compose up --build` locally
+   — this still hasn't been done anywhere, sandbox or real machine, and CI
+   doesn't cover it either (it runs the services directly, not through
+   Docker) — fix whatever surfaces, then the "containerized" half of the
+   claim is fully verified too, not just plausible.
 5. **Async generation**: the ~8.3s blocking Gemini call is fine for a demo
    but not a real deployment — move it behind a background task/streaming
    response so the API doesn't hold a request open that long.
 
 ## Suggested resume bullets
 
-The first four are fully verified (you ran them yourself); the Docker/CI
-ones need you to run `docker compose up --build` and a GitHub Actions push
-before you use them.
+All of these are now verified except the last one, which is explicitly
+marked — Docker itself has never actually been built and run, so don't
+claim "containerized" until you've run `docker compose up --build`
+yourself and it works.
 
 - Built a RAG-powered industrial safety intelligence agent (FastAPI +
   React) answering queries over near-miss reports and safety regulations
@@ -345,6 +357,8 @@ before you use them.
   testing alone, fixed with `Access-Control-Expose-Headers`, and locked in
   with a regression test that simulates the exact cross-origin condition
   that triggers the bug.
-- (After you verify) Containerized both services (Docker Compose) and
-  configured CI (GitHub Actions) to run the full test and evaluation suite
-  on every push.
+- Configured CI (GitHub Actions) to run the full 22-test suite, retrieval
+  evaluation, and frontend lint+build on every push — verified green on
+  GitHub's own infrastructure, not just written and assumed to work.
+- (Not yet — verify before using this one) Containerized both services
+  with Docker Compose.
