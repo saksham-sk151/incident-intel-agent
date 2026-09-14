@@ -1,0 +1,203 @@
+{
+  "n_questions": 10,
+  "recall_at_k": {
+    "recall@1": 0.8,
+    "recall@3": 0.8,
+    "recall@5": 0.8
+  },
+  "mrr": 0.8,
+  "per_question": [
+    {
+      "question": "What atmosphere tests are required before confined space entry?",
+      "relevant_ids": [
+        "OISD-STD-105-4.2",
+        "FactoryAct-Sec-36"
+      ],
+      "retrieved_ids": [
+        "OISD-STD-105-4.2",
+        "incident-31",
+        "incident-1",
+        "incident-27",
+        "incident-7"
+      ],
+      "hit_at_k": {
+        "1": true,
+        "3": true,
+        "5": true
+      },
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question": "When must confined space gas testing be repeated during a job?",
+      "relevant_ids": [
+        "OISD-STD-105-4.2"
+      ],
+      "retrieved_ids": [
+        "OISD-STD-105-4.2",
+        "incident-1",
+        "incident-7",
+        "incident-31",
+        "incident-27"
+      ],
+      "hit_at_k": {
+        "1": true,
+        "3": true,
+        "5": true
+      },
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question": "Can hot work be permitted near a gas leak?",
+      "relevant_ids": [
+        "OISD-STD-105-4.5"
+      ],
+      "retrieved_ids": [
+        "incident-67",
+        "incident-48",
+        "incident-62",
+        "incident-50",
+        "incident-42"
+      ],
+      "hit_at_k": {
+        "1": false,
+        "3": false,
+        "5": false
+      },
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question": "Is a standby attendant required for confined space work?",
+      "relevant_ids": [
+        "OISD-STD-105-5.1"
+      ],
+      "retrieved_ids": [
+        "OISD-STD-105-5.1",
+        "OISD-STD-105-4.2",
+        "FactoryAct-Sec-36",
+        "incident-39",
+        "incident-40"
+      ],
+      "hit_at_k": {
+        "1": true,
+        "3": true,
+        "5": true
+      },
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question": "Who is allowed to remove a lockout-tagout lock?",
+      "relevant_ids": [
+        "DGMS-Circular-LOTO-1"
+      ],
+      "retrieved_ids": [
+        "incident-86",
+        "incident-100",
+        "incident-79",
+        "incident-71",
+        "incident-81"
+      ],
+      "hit_at_k": {
+        "1": false,
+        "3": false,
+        "5": false
+      },
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question": "How should energy isolation be verified before maintenance work?",
+      "relevant_ids": [
+        "OISD-GDN-192-3.1",
+        "DGMS-Circular-LOTO-1"
+      ],
+      "retrieved_ids": [
+        "DGMS-Circular-LOTO-1",
+        "incident-90",
+        "incident-86",
+        "incident-100",
+        "incident-79"
+      ],
+      "hit_at_k": {
+        "1": true,
+        "3": true,
+        "5": true
+      },
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question": "What fall protection is required when working above 1.8 metres?",
+      "relevant_ids": [
+        "DGMS-Circular-Height-1"
+      ],
+      "retrieved_ids": [
+        "DGMS-Circular-Height-1",
+        "FactoryAct-Sec-38",
+        "incident-54",
+        "incident-57",
+        "incident-39"
+      ],
+      "hit_at_k": {
+        "1": true,
+        "3": true,
+        "5": true
+      },
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question": "What fire safety measures are required in a factory?",
+      "relevant_ids": [
+        "FactoryAct-Sec-38"
+      ],
+      "retrieved_ids": [
+        "FactoryAct-Sec-38",
+        "incident-39",
+        "incident-40",
+        "incident-37",
+        "incident-47"
+      ],
+      "hit_at_k": {
+        "1": true,
+        "3": true,
+        "5": true
+      },
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question": "How should electrical isolation be confirmed before work begins?",
+      "relevant_ids": [
+        "OISD-GDN-192-3.1"
+      ],
+      "retrieved_ids": [
+        "OISD-GDN-192-3.1",
+        "DGMS-Circular-LOTO-1",
+        "incident-68",
+        "incident-70",
+        "incident-61"
+      ],
+      "hit_at_k": {
+        "1": true,
+        "3": true,
+        "5": true
+      },
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question": "What breathing apparatus rules apply to confined spaces with dangerous fumes?",
+      "relevant_ids": [
+        "FactoryAct-Sec-36"
+      ],
+      "retrieved_ids": [
+        "FactoryAct-Sec-36",
+        "OISD-STD-105-5.1",
+        "incident-125",
+        "incident-110",
+        "incident-133"
+      ],
+      "hit_at_k": {
+        "1": true,
+        "3": true,
+        "5": true
+      },
+      "reciprocal_rank": 1.0
+    }
+  ]
+}

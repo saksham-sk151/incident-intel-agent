@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Swap for a Postgres DSN to run against a real database instead of
+      # the bundled SQLite file, e.g.:
+      # DATABASE_URL: postgresql+psycopg2://postgres:postgres@db:5432/incident_intel
+      DATABASE_URL: sqlite:////app/incident_intel.db
+      # Uncomment and set to enable generative (not just extractive) answers:
+      # OPENAI_API_KEY: ""
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: http://localhost:8000
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend

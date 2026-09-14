@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg, #f4f5fa);
+  transition: background 0.2s ease;
+}
